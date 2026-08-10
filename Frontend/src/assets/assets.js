@@ -5,6 +5,15 @@ import cart from "./cart.png";
 import menu from "./menu.png";
 import dropdown from "./dropdown.png";
 import hero from "./hero.png";
+import product1 from "./product1.png";
+import product2 from "./product2.png";
+import product3 from "./product3.png";
+import product1_2 from "./product1_2.png";
+import product1_3 from "./product1_3.png";
+import product2_2 from "./product2_2.png";
+import product2_3 from "./product2_3.png";
+import product3_2 from "./product3_2.png";
+import product3_3 from "./product3_3.png";
 
 export const assets = {
   logo,
@@ -14,4 +23,13 @@ export const assets = {
   menu,
   dropdown,
   hero,
+  product1,
+  product2,
+  product3,
+  product1_2,
+  product1_3,
+  product2_2,
+  product2_3,
+  product3_2,
+  product3_3,
 };
