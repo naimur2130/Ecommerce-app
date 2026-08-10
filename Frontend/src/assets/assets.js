@@ -14,6 +14,9 @@ import product2_2 from "./product2_2.png";
 import product2_3 from "./product2_3.png";
 import product3_2 from "./product3_2.png";
 import product3_3 from "./product3_3.png";
+import exchange from "./exchange.png";
+import quality from "./quality.png";
+import support from "./support.png";
 
 export const assets = {
   logo,
@@ -32,4 +35,7 @@ export const assets = {
   product2_3,
   product3_2,
   product3_3,
+  exchange,
+  quality,
+  support,
 };
