@@ -18,6 +18,7 @@ import exchange from "./exchange.png";
 import quality from "./quality.png";
 import support from "./support.png";
 import dropdown_icon from "./dropdown_icon.png";
+import cross from "./cross.png";
 
 export const assets = {
   logo,
@@ -40,4 +41,5 @@ export const assets = {
   quality,
   support,
   dropdown_icon,
+  cross,
 };
