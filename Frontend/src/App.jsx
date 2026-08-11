@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
@@ -16,6 +17,7 @@ import SearchBar from "./components/SearchBar";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <ToastContainer />
       {/* Mounted this Navbar component before the Routes tag so that it can be used
       in all the pages */}
       <Navbar />
