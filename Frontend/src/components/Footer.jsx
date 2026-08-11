@@ -15,7 +15,7 @@ const Footer = () => {
             here', making it look like readable English
           </p>
         </div>
-        <div>
+        <div className="mt-5">
           <p className="text-xl font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>Home</li>
@@ -24,13 +24,19 @@ const Footer = () => {
             <li>Privacy policy</li>
           </ul>
         </div>
-        <div>
+        <div className="mt-5">
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>+8801234567891</li>
             <li>naimurrasid@gmail.com</li>
           </ul>
         </div>
+      </div>
+      <div>
+        <hr />
+        <p className="py-5 text-sm text-center ">
+          Copyright 2026@ test.com - All Right Reserved.
+        </p>
       </div>
     </div>
   );
