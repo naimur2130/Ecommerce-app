@@ -23,7 +23,8 @@ import star from "./star.png";
 import half_star from "./half_star.png";
 import bin from "./bin.png";
 import stripe from "./stripe.png";
-import razorpay from "./razorpay.png"
+import razorpay from "./razorpay.png";
+import aboutus from "./aboutus.png";
 
 export const assets = {
   logo,
@@ -51,5 +52,6 @@ export const assets = {
   half_star,
   bin,
   stripe,
-  razorpay
+  razorpay,
+  aboutus,
 };
