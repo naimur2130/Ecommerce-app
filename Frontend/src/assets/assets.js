@@ -21,6 +21,7 @@ import dropdown_icon from "./dropdown_icon.png";
 import cross from "./cross.png";
 import star from "./star.png";
 import half_star from "./half_star.png";
+import bin from "./bin.png";
 
 export const assets = {
   logo,
@@ -45,5 +46,5 @@ export const assets = {
   dropdown_icon,
   cross,
   star,
-  half_star,
+  half_star,bin
 };
