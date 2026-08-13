@@ -25,6 +25,7 @@ import bin from "./bin.png";
 import stripe from "./stripe.png";
 import razorpay from "./razorpay.png";
 import aboutus from "./aboutus.png";
+import contactus from './contactus.png'
 
 export const assets = {
   logo,
@@ -54,4 +55,5 @@ export const assets = {
   stripe,
   razorpay,
   aboutus,
+  contactus
 };
