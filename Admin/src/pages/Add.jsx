@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../App";
+import { toast } from "react-toastify";
 
-const Add = () => {
+const Add = ({ token }) => {
   const [image1, setImage1] = useState(false);
   const [image2, setImage2] = useState(false);
   const [image3, setImage3] = useState(false);
@@ -39,10 +40,29 @@ const Add = () => {
       const respose = await axios.post(
         backendUrl + "/api/product/add",
         formData,
+        { headers: { token } },
       );
 
-      console.log(respose.data);
-    } catch (error) {}
+      if (respose.data.success) {
+        toast.success(respose.data.message);
+        setName("");
+        setDescription("");
+        setPrice("");
+        setImage1(false);
+        setImage2(false);
+        setImage3(false);
+        setImage4(false);
+        setSizes([]);
+        setCategory("Men");
+        setSubCategory("Topwear");
+        setBestseller(false);
+      } else {
+        toast.error(respose.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
   return (
     <form
@@ -133,6 +153,7 @@ const Add = () => {
           <p className="mb-2">Product Category</p>
           <select
             onChange={(e) => setCategory(e.target.value)}
+            value={category}
             className="w-full px-3 py-2"
           >
             <option value="Men">Men</option>
@@ -144,6 +165,7 @@ const Add = () => {
           <p className="mb-2">Sub-Category</p>
           <select
             onChange={(e) => setSubCategory(e.target.value)}
+            value={subCategory}
             className="w-full px-3 py-2"
           >
             <option value="Topwear">Topwear</option>
