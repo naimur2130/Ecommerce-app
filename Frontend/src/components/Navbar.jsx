@@ -5,7 +5,21 @@ import { ShopContext } from "../context/ShopContext.jsx";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch, getCartCount } = useContext(ShopContext);
+  const {
+    setShowSearch,
+    getCartCount,
+    navigate,
+    token,
+    setToken,
+    setCartItems,
+  } = useContext(ShopContext);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    setCartItems({});
+    navigate("/login");
+  };
   const cartItemCount = getCartCount();
 
   return (
@@ -42,16 +56,24 @@ const Navbar = () => {
           alt=""
         />
         <div className="group relative">
-          <Link to={"/login"}>
-            <img src={assets.profile} className="w-7 curson-pointer" alt="" />
-          </Link>
-          <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-              <p className="curson-pointer hover:text-black">My Profile</p>
-              <p className="curson-pointer hover:text-black">Orders</p>
-              <p className="curson-pointer hover:text-black">Logout</p>
+          <img
+            onClick={() => (token ? null : navigate("/login"))}
+            src={assets.profile}
+            className="w-7 curson-pointer"
+            alt=""
+          />
+          {/* Dropdown Menu */}
+          {token && (
+            <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
+              <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
+                <p className="curson-pointer hover:text-black">My Profile</p>
+                <p className="curson-pointer hover:text-black">Orders</p>
+                <p onClick={logout} className="curson-pointer hover:text-black">
+                  Logout
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <Link to="/cart" className="relative">
           <img src={assets.cart} className="w-7 min-w-7" alt="" />

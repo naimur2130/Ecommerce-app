@@ -9,12 +9,14 @@ const ShopContextProvider = (props) => {
   const currency = "$";
   const delivery_fee = 100;
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  //console.log("Backend: " + backendUrl);
 
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  const [token, setToken] = useState("");
 
   const addToCart = async (itemId, size) => {
     let copyCartItems = structuredClone(cartItems); //creating the copy of the cartItems object
@@ -88,6 +90,11 @@ const ShopContextProvider = (props) => {
   useEffect(() => {
     getProductsData();
   }, []);
+  useEffect(() => {
+    if (!token && localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, []);
 
   const value = {
     products,
@@ -104,6 +111,9 @@ const ShopContextProvider = (props) => {
     getCartAmount,
     navigate,
     backendUrl,
+    token,
+    setToken,
+    setCartItems,
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
