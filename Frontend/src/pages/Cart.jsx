@@ -17,7 +17,7 @@ const Cart = () => {
       for (const item in cartItems[items]) {
         if (cartItems[items][item] > 0) {
           tempData.push({
-            id: Number(items),
+            id: items,
             size: item,
             quantity: cartItems[items][item],
           });
@@ -35,7 +35,7 @@ const Cart = () => {
       <div>
         {cartData.map((item, index) => {
           const productData = products.find(
-            (product) => product.id === item.id,
+            (product) => product._id === item.id,
           );
           return (
             <div
@@ -45,7 +45,7 @@ const Cart = () => {
               <div className="flex items-start gap-6">
                 <img
                   className="w-16 sm:w-20"
-                  src={productData.images[0]}
+                  src={productData.image[0]}
                   alt=""
                 />
                 <div>
@@ -70,7 +70,7 @@ const Cart = () => {
                 // }
 
                 onChange={(e) => {
-                  updateQuantity(item.id, item.size, Number(e.target.value));
+                  updateQuantity(item.id, item.size, e.target.value);
                 }}
                 className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
                 type="number"
