@@ -43,6 +43,10 @@ const PlaceOrder = () => {
     try {
       let orderItems = [];
       for (const items in cartItems) {
+        const product = products.find(
+          (product) => String(product._id) === String(items),
+        );
+
         for (const item in cartItems[items]) {
           if (cartItems[items][item] > 0) {
             if (product) {
@@ -57,6 +61,7 @@ const PlaceOrder = () => {
         }
       }
 
+      console.log("FINAL ORDER ITEMS:", orderItems);
       let orderData = {
         address: formData,
         items: orderItems,
