@@ -4,6 +4,7 @@ import order from "./order.png";
 import list from "./list.png";
 import upload_image from "./upload_image.png";
 import delete_icon from "./delete_icon.png";
+import parcel from "./parcel.png";
 
 export const assets = {
   admin_logo,
@@ -12,4 +13,5 @@ export const assets = {
   order,
   upload_image,
   delete_icon,
+  parcel,
 };
