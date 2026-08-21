@@ -15,6 +15,7 @@ jobs:
         uses: actions/setup-node@v6.5.0
         with:
           node-version: 22.x
+          cache: 'npm'
       - name: Install Dependencies
         working-directory: ./Frontend
         run: npm install
@@ -22,4 +23,10 @@ jobs:
       - name: Build React App
         working-directory: ./Frontend
         run: npm run build
+
+      - name: Upload Build On Artifacts
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: React app build
+          path: Frontend/dist
     
