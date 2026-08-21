@@ -9,6 +9,10 @@ jobs:
   build-react-app:
     runs-on: ubuntu-latest
 
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+
     steps:
       - uses: actions/checkout@v6.1.0
       - name: Setup Node JS
